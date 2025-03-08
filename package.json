@@ -1,0 +1,23 @@
+{
+  "name": "salesforceplaywrighttypescript",
+  "version": "1.0.0",
+  "description": "Salesforce test automation framework in Playwright + Typescript",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anjtoanj/SalesforcePlaywrightTypescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/anjtoanj/SalesforcePlaywrightTypescript/issues"
+  },
+  "homepage": "https://github.com/anjtoanj/SalesforcePlaywrightTypescript#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "@types/node": "^22.13.9"
+  }
+}
