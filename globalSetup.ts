@@ -25,10 +25,6 @@ async function globalSetup(config: FullConfig) {
     // // Load login page using the dynamic baseURL
     // await playwrightWrapper.loadApp(`${baseURL}/login`);
 
-    // // Perform login using wrapper functions
-    // await playwrightWrapper.type("//input[@name='username']", "Username Field", 'Thanmayi321@gmail.com');
-    // await playwrightWrapper.type("//input[@name='pw']","Password", 'GenAI@2025');
-    // await playwrightWrapper.click("//input[@name='Login']","Login","Button");
 
     // // Wait for home page to load
     // await playwrightWrapper.waitForURLtoLoad(`${baseURL}/home`, 10000);
