@@ -1,10 +1,7 @@
 # SalesforcePlaywrightTypescript
 
 - This is a Salesforce test automation framework in Playwright + Typescript
-- This is an experimental framework with following features:
-                    - UI automation in playwright+ typescript - IN PROGRESS
-                    - API automation - REST API - IN PROGRESS
-                    - Tests to integrate API -> UI and vice versa - IN PROGRESS - Integrate Generative AI to create test scripts - TO DO
+- This is an experimental framework with following features: - UI automation in playwright+ typescript - IN PROGRESS - API automation - REST API - IN PROGRESS - Tests to integrate API -> UI and vice versa - IN PROGRESS - Integrate Generative AI to create test scripts - TO DO
 
 ## -FOLDER STRUCTURE
 
