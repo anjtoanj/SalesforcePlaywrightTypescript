@@ -7,7 +7,7 @@
 
 API TO WEBPORTAL TESTING Framework structure
 
-playwright-api-testing/
+SalesforcePlaywrightTypescript/
 │── node_modules/ # Dependencies (auto-generated)
 │── tests/ # Test cases directory
 │ ├── api/ # API test cases
