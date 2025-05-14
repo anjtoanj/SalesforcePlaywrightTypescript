@@ -1,31 +1,32 @@
 import { Page, expect } from "@playwright/test";
 import { PlaywrightWrapper } from "../utils/playwrightWrapper";
 import { UrlConstants } from "../constants/appConstants";
-import { Users } from "../constants/users";
+import { BaseClass } from "./base";
 
+export class LoginClass extends BaseClass {
+  constructor(page: Page) {
+    super(page);
+  }
 
-export class LoginPage extends PlaywrightWrapper{
+  // Locators defined for the login page
+  public error = "#error";
+  public userNameField = "//input[@name='username']";
+  public passwordField = "//input[@name='pw']";
+  public loginButton = "//input[@name='Login']";
 
-    static pageUrl =  UrlConstants.SF_URL;   
+  // Performs login validations with predefined credentials.
 
-    constructor(page: Page){
-        super(page);
-      }
+  public async LoginValidation(username: string, password: string) {
+    await this.type(this.userNameField, "UserName", username);
+    await this.type(this.passwordField, "Password", password);
+    await this.click(this.loginButton, "Login", "Button");
+  }
 
-   /*
-    Navigates to the login page.
-    */
-    public async navigateToLoginPage() {
-        await this.loadApp(LoginPage.pageUrl);
-    }
-
-    /*
-    Performs login with predefined credentials. 
-    */
-    public async Login(){
-        await this.type("//input[@name='username']","UserName",Users.adminUserName);
-        await this.type("//input[@name='pw']","Password", Users.adminPassword);
-        await this.click("//input[@name='Login']","Login","Button");
-    }    
-
+  // Returns the error message on the login page
+  public async VerifyTextMessage(): Promise<string> {
+    // Get the error message
+    const errorMessage = await this.getText(this.error);
+    console.log(`Error message: ${errorMessage}`);
+    return errorMessage;
+  }
 }

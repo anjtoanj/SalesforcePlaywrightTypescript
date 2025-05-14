@@ -18,8 +18,9 @@ SalesforcePlaywrightTypescript/
 │ │ ├── login.test.ts # Login tests
 │ │ ├── dashboard.test.ts # Dashboard tests
 │── pages/ # Page Object Model (POM) for UI
-│ ├── basePage.ts # Base class for common methods
-│ ├── loginPage.ts # Login page actions
+│ ├── base.ts # Base class for common methods
+│ ├── login.ts # Login page actions
+│ ├── home.ts # home page actions
 │ ├── dashboardPage.ts # Dashboard page actions
 │── api/ # API service layer (API POM)
 │ ├── baseApi.ts # Base API class
@@ -31,7 +32,7 @@ SalesforcePlaywrightTypescript/
 │ ├── dataGenerator.ts # Test data generator
 | ├── playwrightWrapper.ts # Wrapper class
 │── test-data/ # Test data storage
-│ ├── users.json # Sample user data
+│ ├── loginPageCheck.json # Sample login dataset for various test cases
 │
 |── playwright.config.ts # Playwright configuration
 │── reports/ # Test reports (auto-generated)

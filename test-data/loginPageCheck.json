@@ -1,0 +1,36 @@
+[
+  {
+    "testCase": "TC01 - Valid Credentials",
+    "username": "Thanmayi321@gmail.com",
+    "password": "GenAI@2025 "
+  },
+  {
+    "testCase": "TC02 - Invalid username",
+    "username": "anjtoanj@gmail.com",
+    "password": "Pswed",
+    "errorMessage": "Please check your username and password. If you still can't log in, contact your Salesforce administrator."
+  },
+  {
+    "testCase": "TC03 - Invalid password",
+    "username": "Thanmayi321@gmail.com",
+    "password": " Pwd@3039",
+    "errorMessage": "Please check your username and password. If you still can't log in, contact your Salesforce administrator."
+  },
+  {
+    "testCase": "TC04 - Blank username and password",
+    "username": " ",
+    "password": " ",
+    "errorMessage": "Please check your username and password. If you still can't log in, contact your Salesforce administrator."
+  },
+  {
+    "testCase": "TC05 - Blank username and valid password",
+
+    "password": "GenAI@2025 ",
+    "errorMessage": "Please check your username and password. If you still can't log in, contact your Salesforce administrator."
+  },
+  {
+    "testCase": "TC06 - Valid username and blank password",
+
+    "errorMessage": "Please check your username and password. If you still can't log in, contact your Salesforce administrator."
+  }
+]
