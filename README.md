@@ -40,3 +40,29 @@ SalesforcePlaywrightTypescript/
 │── package.json # Project dependencies
 │── package-lock.json # Dependency lock file
 │── README.md # Documentation
+
+---
+
+---
+
+---
+
+IN PROGRESS
+15/05/2025
+
+1. Setting up OAuth 2.0 - token generation and related tests
+
+---
+
+---
+
+---
+
+TO DO / MODIFY NOTES
+
+Login.spec.ts
+
+1.  "TC : Verify if Enter key moves focus from username -> password -> Login Button"
+    //REWRITE THIS TEST > THIS IS NOT THE RIGHT WAY TO DO IT -- TO DO LATER
+
+2.  //write tests to handle blank username / pssword - TO DO LATER

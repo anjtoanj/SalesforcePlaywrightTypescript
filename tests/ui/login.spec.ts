@@ -42,8 +42,11 @@ test.describe(`Tests on Login page`, () => {
     const usernameLocator = page.locator(loginClass.userNameField);
     const passwordLocator = page.locator(loginClass.passwordField);
 
+    //REWRITE THIS TEST > THIS IS NOT THE RIGHT WAY TO DO IT -- TO DO LATER
+
     // Step 1: Focus on username field and press Enter
     await usernameLocator.focus();
+    await usernameLocator.fill("testuser"); //
     await usernameLocator.press("Enter");
 
     // Step 2: Get currently focused element (active element)
@@ -56,6 +59,7 @@ test.describe(`Tests on Login page`, () => {
 
     // Step 3: Type a sample password and press Enter
     await passwordLocator.focus();
+    await passwordLocator.fill("testuser");
     await passwordLocator.press("Enter");
 
     // Step 4: Get currently focused element (active element)
