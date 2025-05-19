@@ -66,3 +66,5 @@ Login.spec.ts
     //REWRITE THIS TEST > THIS IS NOT THE RIGHT WAY TO DO IT -- TO DO LATER
 
 2.  //write tests to handle blank username / pssword - TO DO LATER
+
+playwrightWrapper.ts 3. Hook to capture a screenshot if the test fails- TO DO LATER

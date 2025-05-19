@@ -121,7 +121,18 @@ export class PlaywrightWrapper {
   }
 
   /*
-    Hook to capture a screenshot if the test fails
+    This function checks a checkbox if it is not already checked
+    @selector: The selector for the checkbox element
+    */
+  public async checkCheckbox(locator: string) {
+    const checkbox = await this.page.locator(locator);
+    if (!(await checkbox.isChecked())) {
+      await checkbox.check();
+    }
+  }
+
+  /*
+    Hook to capture a screenshot if the test fails- TO implement
     */
   static afterEachHook() {
     test.afterEach(async ({ page }, testInfo) => {
