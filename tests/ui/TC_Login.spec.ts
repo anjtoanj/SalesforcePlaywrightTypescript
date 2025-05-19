@@ -3,7 +3,7 @@ import dataArray from "../../test-data/loginPageCheck.json";
 import { BaseClass } from "../../pages/base";
 import { LoginClass } from "../../pages/login";
 
-test.describe(`Tests on Login page`, () => {
+test.describe(`Tests on Salesforce Login page`, () => {
   let baseClass: BaseClass;
   let loginClass: LoginClass;
 

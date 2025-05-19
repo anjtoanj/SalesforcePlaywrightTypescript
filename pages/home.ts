@@ -7,11 +7,21 @@ export class HomePage extends BaseClass {
     super(page);
   }
 
+  // Locators defined for the Home page
+  public appLauncherButton = 'button[title="App Launcher"]';
+  public searchItem = "//input[@placeholder='Search apps and items...']";
+
   /*
     Navigates to the App Launcher button.
     */
   async clickAppLauncher() {
-    await this.click('button[title="App Launcher"]', "App Launcher", "Button");
+    await this.click(this.appLauncherButton, "App Launcher", "Button");
+  }
+
+  async searchItemInAppLauncher(item: string) {
+    await this.type(this.searchItem, item, "Search Item in App Launcher");
+    await this.page.keyboard.press("Enter");
+    await this.page.waitForTimeout(2000); // Wait for 2 seconds to allow the search results to load
   }
 
   async clickCreate() {

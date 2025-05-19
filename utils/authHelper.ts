@@ -33,7 +33,7 @@ async function getAccessToken() {
   console.log(response);
   return {
     access_token: response.access_token,
-    instance_url: response.instance_url,
+    //    instance_url: response.instance_url,
   };
 }
 export { getAccessToken };

@@ -6,8 +6,12 @@ import { Users } from "../constants/users";
 export class BaseClass extends PlaywrightWrapper {
   static pageUrl = UrlConstants.SF_URL;
 
+  //Locators
+  public loginButton = "//input[@name='Login']";
+  public userName = "//input[@name='username']";
+  public password = "//input[@name='pw']";
+
   constructor(page: Page) {
-    // Replace PlaywrightWrapper with a concrete subclass, e.g., ConcretePlaywrightWrapper
     super(page);
   }
 
@@ -22,12 +26,8 @@ export class BaseClass extends PlaywrightWrapper {
     Performs login with predefined credentials. 
     */
   public async Login() {
-    await this.type(
-      "//input[@name='username']",
-      "UserName",
-      Users.adminUserName
-    );
-    await this.type("//input[@name='pw']", "Password", Users.adminPassword);
-    await this.click("//input[@name='Login']", "Login", "Button");
+    await this.type(this.userName, "UserName", Users.adminUserName);
+    await this.type(this.password, "Password", Users.adminPassword);
+    await this.click(this.loginButton, "Login", "Button");
   }
 }
