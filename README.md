@@ -47,10 +47,10 @@ SalesforcePlaywrightTypescript/
 
 ---
 
-IN PROGRESS
-15/05/2025
-
-1. Setting up OAuth 2.0 - token generation and related tests
+TASK STATUS
+19/05/2025 1.Create Lead UI tests -> TC_LeadPage.spec.ts - IN PROGRESS
+16/05/2025 1.API testing on leads page -> TC_API_LeadsPage.spec.ts -DONE
+15/05/2025 1.Setting up OAuth 2.0 - token generation and related tests - -> TC_TokenGeneration.spec.ts -DONE
 
 ---
 
