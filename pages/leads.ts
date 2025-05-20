@@ -16,8 +16,10 @@ export class LeadsPage extends HomePage {
     "(//div[contains(@class,'slds-grid slds-grid--align-spread')]//span)[1]";
   public firstItemLinkListView =
     "(//a[@data-aura-class='forceOutputLookup'])[1]";
-  public leadNameHeader = "//slot[@name='primaryField'];";
-  public companyName = "//p[@title='Company']";
+  public leadNameHeader = "//slot[@name='primaryField']";
+  public companyNameValue =
+    "//p[@title='Company']/parent::div//lightning-formatted-text";
+  public firstRecordLeadName = "(//a[@data-aura-class='forceOutputLookup'])[1]";
 
   public async navigateToLeadsPage() {
     // Click on the App Launcher button
@@ -29,8 +31,7 @@ export class LeadsPage extends HomePage {
     await this.click(this.searchLeadInputText, "Search Item", "TextBox");
     await this.type(this.searchLeadInputText, "Search Item", leadName);
     await this.page.keyboard.press("Enter");
-    // Wait for the search results to load
-    await this.page.waitForTimeout(2000);
+    await this.page.waitForTimeout(1000); // Wait for 1 second to allow the search results to load
   }
 
   public async createNewLead() {}

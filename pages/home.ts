@@ -19,9 +19,10 @@ export class HomePage extends BaseClass {
   }
 
   async searchItemInAppLauncher(item: string) {
-    await this.type(this.searchItem, item, "Search Item in App Launcher");
+    await this.type(this.searchItem, "Search Item in App Launcher", item);
     await this.page.keyboard.press("Enter");
-    await this.page.waitForTimeout(2000); // Wait for 2 seconds to allow the search results to load
+    await this.page.waitForTimeout(1000); // Wait for 1 second to allow the search results to load
+    await this.page.keyboard.press("Enter");
   }
 
   async clickCreate() {

@@ -23,12 +23,16 @@ test.describe(`Tests on Leads page`, () => {
 
   test("TC02: Verify search for Lead functionality", async ({ page }) => {
     await leadsPage.searchLead("Anju");
-
+    await leadsPage.click(
+      leadsPage.firstRecordLeadName,
+      "Click first Lead record from search result",
+      "ListView"
+    );
     // Add assertions to verify if the lead is found and navigated to the lead details page
     expect(
       await page.locator(leadsPage.leadNameHeader).textContent()
     ).toContain("Anju");
-    expect(await page.locator(leadsPage.companyName).textContent()).toContain(
+    await expect(page.locator(leadsPage.companyNameValue)).toContainText(
       "Playwright API test"
     );
   });
