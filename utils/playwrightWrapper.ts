@@ -116,7 +116,7 @@ export class PlaywrightWrapper {
     */
   async click(locator: string, name: string, type: string) {
     await test.step(`The ${type} ${name} clicked`, async () => {
-      await this.page.locator(locator).click();
+      await this.page.locator(locator).click({ timeout: 10000 });
     });
   }
 

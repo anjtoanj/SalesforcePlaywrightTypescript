@@ -31,7 +31,7 @@ export class LeadsPage extends HomePage {
     await this.click(this.searchLeadInputText, "Search Item", "TextBox");
     await this.type(this.searchLeadInputText, "Search Item", leadName);
     await this.page.keyboard.press("Enter");
-    await this.page.waitForTimeout(1000); // Wait for 1 second to allow the search results to load
+    await this.page.waitForTimeout(5000); // Wait for 5 second to allow the search results to load
   }
 
   public async createNewLead() {}

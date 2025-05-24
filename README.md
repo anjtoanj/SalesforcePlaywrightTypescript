@@ -48,9 +48,11 @@ SalesforcePlaywrightTypescript/
 ---
 
 TASK STATUS
-19/05/2025 1.Create Lead UI tests -> TC_LeadPage.spec.ts - IN PROGRESS
+24/05/2025 1.TC01_Validate_CreateLead_APIUI_Integration.spec.ts - DONE - Create a new lead through API and verify in UI 2. TC02 : Verify New Lead Created in TC01 has been deleted through API and not present in UI - TO DO
+21/05/2025 1.Lead UI tests -> TC02: Verify search for Lead functionality - DONE
+19/05/2025 1.Lead UI tests -> TC_LeadPage.spec.ts - IN PROGRESS
 16/05/2025 1.API testing on leads page -> TC_API_LeadsPage.spec.ts -DONE
-15/05/2025 1.Setting up OAuth 2.0 - token generation and related tests - -> TC_TokenGeneration.spec.ts -DONE
+15/05/2025 1.Setting up OAuth 2.0 - token generation and related tests - -> TC_TokenGeneration.spec.ts - DONE
 
 ---
 
