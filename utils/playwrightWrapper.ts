@@ -58,8 +58,8 @@ export class PlaywrightWrapper {
     @param timeout - The timeout in milliseconds.
     */
 
-  async waitForelement(element: string, timeout: number) {
-    await this.page.waitForSelector(element, {
+  async waitForelement(locator: string, timeout: number) {
+    await this.page.waitForSelector(locator, {
       state: "visible",
       timeout: timeout,
     });
@@ -85,9 +85,9 @@ export class PlaywrightWrapper {
    * @param errorMessage - The selector for the error message element.
    * @returns The text content of the element.
    */
-  public async getText(selector: string): Promise<string> {
-    await this.page.waitForSelector(selector, { state: "visible" });
-    const element = await this.page.$(selector);
+  public async getText(locator: string): Promise<string> {
+    await this.page.waitForSelector(locator, { state: "visible" });
+    const element = await this.page.$(locator);
     const text = await element?.textContent();
     return text?.trim() || "";
   }

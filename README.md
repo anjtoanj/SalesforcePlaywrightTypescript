@@ -48,7 +48,7 @@ SalesforcePlaywrightTypescript/
 ---
 
 TASK STATUS
-24/05/2025 1.TC01_Validate_CreateLead_APIUI_Integration.spec.ts - DONE - Create a new lead through API and verify in UI 2. TC02 : Verify New Lead Created in TC01 has been deleted through API and not present in UI - TO DO
+24/05/2025 1.TC01_Validate_CreateLead_APIUI_Integration.spec.ts - DONE - Create a new lead through API and verify in UI 2. TC02 : Verify New Lead Created in TC01 has been deleted through API and not present in UI - Get the count of records in a table /listview - DONE - Run teh entire delete test and ensure teh functionality - TO DO
 21/05/2025 1.Lead UI tests -> TC02: Verify search for Lead functionality - DONE
 19/05/2025 1.Lead UI tests -> TC_LeadPage.spec.ts - IN PROGRESS
 16/05/2025 1.API testing on leads page -> TC_API_LeadsPage.spec.ts -DONE
@@ -60,7 +60,7 @@ TASK STATUS
 
 ---
 
-TO DO / MODIFY NOTES
+TO IMPROVE / MODIFY NOTES
 
 Login.spec.ts
 
@@ -70,3 +70,6 @@ Login.spec.ts
 2.  //write tests to handle blank username / pssword - TO DO LATER
 
 playwrightWrapper.ts 3. Hook to capture a screenshot if the test fails- TO DO LATER
+
+3. public async getLeadRowCount()
+   - This method return wrong count if the no.of rows are more eg:56 due to timing issue in counting rows - TO BE FIXED LATER

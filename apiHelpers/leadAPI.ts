@@ -55,6 +55,8 @@ export async function deleteLeadAPI(accessToken: string, leadId: string) {
   const body = await response.json();
   console.log("Response from delete request:", body);
   return {
-    status: response.status(),
+    status: body.status(),
+    errorCode: body.errorCode,
+    message: body.message,
   };
 }

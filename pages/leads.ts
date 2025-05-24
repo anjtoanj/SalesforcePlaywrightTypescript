@@ -1,4 +1,4 @@
-import { Page, expect } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 import { PlaywrightWrapper } from "../utils/playwrightWrapper";
 import { UrlConstants } from "../constants/appConstants";
 import { BaseClass } from "./base";
@@ -9,7 +9,8 @@ export class LeadsPage extends HomePage {
     super(page);
   }
 
-  //Locators defined for the Leads page
+  /*****************  LOCATORS TO INTERACT WITH THE LEADS PAGE ******************/
+
   public newButton = "//a[@title='New']";
   public searchLeadInputText = "//input[@aria-label='Search this list...']";
   public firstItemCheckBoxListView =
@@ -21,6 +22,19 @@ export class LeadsPage extends HomePage {
     "//p[@title='Company']/parent::div//lightning-formatted-text";
   public firstRecordLeadName = "(//a[@data-aura-class='forceOutputLookup'])[1]";
 
+  /* To handle records in the table*/
+  public leadlistTable = "//table[@aria-label='Recently Viewed']";
+  public leadListTableRecord =
+    "//table[@aria-label='Recently Viewed']/tbody/tr";
+  //Convert XPath string to a Locator for table
+  public leadlistTableBodyRecordLocator(): Locator {
+    return this.page.locator(this.leadListTableRecord);
+  }
+
+  /*****************  METHODS TO INTERACT WITH THE LEADS PAGE ******************/
+  /*
+    Navigates to the Leads page.
+    */
   public async navigateToLeadsPage() {
     // Click on the App Launcher button
     await this.clickAppLauncher();
@@ -31,7 +45,26 @@ export class LeadsPage extends HomePage {
     await this.click(this.searchLeadInputText, "Search Item", "TextBox");
     await this.type(this.searchLeadInputText, "Search Item", leadName);
     await this.page.keyboard.press("Enter");
-    await this.page.waitForTimeout(5000); // Wait for 5 second to allow the search results to load
+    // Wait for the lead list table to be visible after search
+    await this.page.waitForSelector(this.leadlistTable, {
+      state: "visible",
+      timeout: 50000,
+    });
+  }
+
+  public async getLeadRowCount(timeout: number = 10000): Promise<number> {
+    // Wait for the rows in teh table to be visible before counting rows
+    await this.page.waitForSelector(this.leadListTableRecord, {
+      state: "visible",
+      timeout,
+    });
+    // Count the number of rows in the table body
+    const rows = this.leadlistTableBodyRecordLocator();
+    await this.page.waitForTimeout(2000); // Wait for 5 seconds for all rows to be counted -without this wait the row count is wrongly counted
+
+    let rowCount = await rows.count();
+    console.log(`Number of lead rows found: ${rowCount}`);
+    return rowCount;
   }
 
   public async createNewLead() {}
