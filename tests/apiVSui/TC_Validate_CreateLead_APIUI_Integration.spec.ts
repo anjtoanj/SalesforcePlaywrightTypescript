@@ -1,7 +1,7 @@
 import { test, expect, request } from "@playwright/test";
 import { API_URL } from "../../constants/apiKeys";
 import { Users } from "../../constants/users";
-import { getAccessToken } from "../../utils/authHelper";
+import { getAccessToken } from "../../apiHelpers/authHelper";
 import {
   createLeadAPI,
   deleteLeadAPI,
