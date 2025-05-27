@@ -1,11 +1,11 @@
 import { chromium } from "@playwright/test";
 import { ForAPI } from "../constants/apiKeys";
 import { Users } from "../constants/users";
+import { request } from "@playwright/test";
 
 async function getAccessToken() {
-  const browser = await chromium.launch();
-  const browserContext = await browser.newContext();
-  const apiRequestContext = await browserContext.request;
+  // Create a new request context for API requests
+  const apiRequestContext = await request.newContext();
 
   const clientID = ForAPI.CLIENT_ID;
   const clientSecret = ForAPI.CLIENT_SECRET;
@@ -15,11 +15,7 @@ async function getAccessToken() {
 
   // Generate the access token using the OAuth 2.0 password grant type
 
-  const generateToken = await apiRequestContext.post(loginUrl, {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      Connection: "keep-alive",
-    },
+  const response = await apiRequestContext.post(loginUrl, {
     form: {
       grant_type: "password",
       client_id: clientID,
@@ -29,11 +25,10 @@ async function getAccessToken() {
     },
   });
 
-  const response = await generateToken.json();
-  console.log(response);
-  return {
-    access_token: response.access_token,
-    //    instance_url: response.instance_url,
-  };
+  const body = await response.json();
+  const accessToken = body.access_token;
+  console.log(accessToken);
+  return accessToken;
 }
+
 export { getAccessToken };

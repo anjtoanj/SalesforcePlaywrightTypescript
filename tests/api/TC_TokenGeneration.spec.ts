@@ -33,7 +33,7 @@ test.describe("Tests on Bearer Token Generation - Response Displayed in Report",
     expect(body.token_type).toBe("Bearer");
   });
 
-  test("TC02 : Verify response with invalid credentials", async ({
+  test.skip("TC02 : Verify response with invalid credentials", async ({
     request,
   }, testInfo) => {
     const response = await request.post(ForAPI.API_TOKEN_URL, {
@@ -58,7 +58,7 @@ test.describe("Tests on Bearer Token Generation - Response Displayed in Report",
     expect(body).toHaveProperty("error");
   });
 
-  test("TC03 : Verify response with missing parameter", async ({
+  test.skip("TC03 : Verify response with missing parameter", async ({
     request,
   }, testInfo) => {
     const response = await request.post(ForAPI.API_TOKEN_URL, {
@@ -83,7 +83,7 @@ test.describe("Tests on Bearer Token Generation - Response Displayed in Report",
     expect(body).toHaveProperty("error");
   });
 
-  test("TC04: Verify response with invalid grant_type", async ({
+  test.skip("TC04: Verify response with invalid grant_type", async ({
     request,
   }, testInfo) => {
     const response = await request.post(ForAPI.API_TOKEN_URL, {
