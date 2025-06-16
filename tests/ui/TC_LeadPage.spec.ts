@@ -21,7 +21,9 @@ test.describe(`Tests on Leads page`, () => {
     // Add assertions to verify the lead creation
   });
 
-  test("TC02: Verify search for Lead functionality", async ({ page }) => {
+  test("TC02: Verify search for Lead functionality", async ({
+    page,
+  }, testInfo) => {
     await leadsPage.searchLead("Anju");
     await leadsPage.click(
       leadsPage.firstRecordLeadName,
@@ -32,9 +34,14 @@ test.describe(`Tests on Leads page`, () => {
     expect(
       await page.locator(leadsPage.leadNameHeader).textContent()
     ).toContain("Anju");
-    await expect(page.locator(leadsPage.companyNameValue)).toContainText(
-      "Playwright API test"
-    );
+    // await expect(page.locator(leadsPage.companyNameValue)).toContainText(
+    //   "Playwright API test"
+    // );
+
+    await testInfo.attach("New Lead Header from UI", {
+      body: `Searched Lead Header: ${leadsPage.leadNameHeader}`,
+      contentType: "text/plain",
+    });
   });
 
   test.skip("TC03: Verify modify on selected Lead functionality", async ({

@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/anjtoanj/SalesforcePlaywrightTypescript#readme",
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
+    "@faker-js/faker": "^9.8.0",
+    "@playwright/test": "^1.53.0",
     "@types/node": "^22.13.9"
   },
   "dependencies": {

@@ -6,7 +6,7 @@ export default defineConfig({
   workers: 4, // Run tests in parallel using 4 workers
   retries: 1, // Retries once if a test fails
   reporter: [
-    ["html", { outputFolder: "playwright-report", open: "on" }], // Generates and opens HTML report
+    ["html", { outputFolder: "playwright-report", open: "always" }], // Generates and opens HTML report
   ],
   use: {
     trace: "on", // Enable tracing for debugging

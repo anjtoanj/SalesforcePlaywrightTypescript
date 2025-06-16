@@ -75,8 +75,8 @@ export class PlaywrightWrapper {
 
   async type(locator: string, name: string, data: string) {
     await test.step(`Entered ${name} in the textbox : ${data} `, async () => {
-      await this.page.locator(locator).clear;
-      await this.page.locator(locator).fill(data);
+      await this.page.locator(locator).clear({ timeout: 5000 });
+      await this.page.locator(locator).fill(data, { timeout: 5000 });
     });
   }
 

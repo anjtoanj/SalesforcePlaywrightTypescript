@@ -3,7 +3,7 @@ import { ForAPI } from "../constants/apiKeys";
 import { Users } from "../constants/users";
 import { request } from "@playwright/test";
 
-async function getAccessToken() {
+export async function getAccessToken() {
   // Create a new request context for API requests
   const apiRequestContext = await request.newContext();
 
@@ -26,9 +26,7 @@ async function getAccessToken() {
   });
 
   const body = await response.json();
-  const accessToken = body.access_token;
-  console.log(accessToken);
-  return accessToken;
+  const access_Token = body.access_token;
+  console.log(body.access_token);
+  return { access_Token };
 }
-
-export { getAccessToken };

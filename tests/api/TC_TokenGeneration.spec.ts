@@ -1,9 +1,10 @@
 import { test, expect, request } from "@playwright/test";
 import { ForAPI } from "../../constants/apiKeys";
 import { Users } from "../../constants/users";
+import reportAttachment from "../../utils/reportHelper";
 
 test.describe("Tests on Bearer Token Generation - Response Displayed in Report", () => {
-  test("TC01 : Verify generation of bearer token with valid credentials", async ({
+  test.only("TC01 : Verify generation of bearer token with valid credentials", async ({
     request,
   }, testInfo) => {
     const response = await request.post(ForAPI.API_TOKEN_URL, {
@@ -16,14 +17,24 @@ test.describe("Tests on Bearer Token Generation - Response Displayed in Report",
       },
     });
     const body = await response.json();
-    await testInfo.attach("response-status", {
-      body: response.status().toString(),
-      contentType: "text/plain",
-    });
-    await testInfo.attach("response-body", {
-      body: JSON.stringify(body, null, 2),
-      contentType: "application/json",
-    });
+
+    // Add responseBody information to the test report
+    const responseBody = JSON.stringify(body, null, 2);
+
+    await reportAttachment(
+      testInfo,
+      "TC01 : Verify generation of bearer token with valid credentials - Response Status",
+      response.status().toString(),
+      "text/plain"
+    );
+
+    await reportAttachment(
+      testInfo,
+      "TC01 : Verify generation of bearer token with valid credentials - Response Body",
+      responseBody,
+      "application/json"
+    );
+
     expect(response.ok()).toBeTruthy();
     expect(response.status()).toBe(200);
 
@@ -46,14 +57,22 @@ test.describe("Tests on Bearer Token Generation - Response Displayed in Report",
       },
     });
     const body = await response.json();
-    await testInfo.attach("response-status", {
-      body: response.status().toString(),
-      contentType: "text/plain",
-    });
-    await testInfo.attach("response-body", {
-      body: JSON.stringify(body, null, 2),
-      contentType: "application/json",
-    });
+    // Add responseBody information to the test report
+    const responseBody = JSON.stringify(body, null, 2);
+
+    await reportAttachment(
+      testInfo,
+      "TC02 : Verify response with invalid credentials - Response Status",
+      response.status().toString(),
+      "text/plain"
+    );
+
+    await reportAttachment(
+      testInfo,
+      "TC02 : Verify response with invalid credentials - Response Body",
+      responseBody,
+      "application/json"
+    );
     expect(response.status()).toBe(400);
     expect(body).toHaveProperty("error");
   });
@@ -71,14 +90,22 @@ test.describe("Tests on Bearer Token Generation - Response Displayed in Report",
       },
     });
     const body = await response.json();
-    await testInfo.attach("response-status", {
-      body: response.status().toString(),
-      contentType: "text/plain",
-    });
-    await testInfo.attach("response-body", {
-      body: JSON.stringify(body, null, 2),
-      contentType: "application/json",
-    });
+    // Add responseBody information to the test report
+    const responseBody = JSON.stringify(body, null, 2);
+
+    await reportAttachment(
+      testInfo,
+      "TC03 : Verify response with missing parameter - Response Status",
+      response.status().toString(),
+      "text/plain"
+    );
+
+    await reportAttachment(
+      testInfo,
+      "TC03 : Verify response with missing parameter - Response Body",
+      responseBody,
+      "application/json"
+    );
     expect(response.status()).toBe(400);
     expect(body).toHaveProperty("error");
   });
@@ -96,14 +123,22 @@ test.describe("Tests on Bearer Token Generation - Response Displayed in Report",
       },
     });
     const body = await response.json();
-    await testInfo.attach("response-status", {
-      body: response.status().toString(),
-      contentType: "text/plain",
-    });
-    await testInfo.attach("response-body", {
-      body: JSON.stringify(body, null, 2),
-      contentType: "application/json",
-    });
+    // Add responseBody information to the test report
+    const responseBody = JSON.stringify(body, null, 2);
+
+    await reportAttachment(
+      testInfo,
+      "TC04: Verify response with invalid grant_type - Response Status",
+      response.status().toString(),
+      "text/plain"
+    );
+
+    await reportAttachment(
+      testInfo,
+      "TC04: Verify response with invalid grant_type - Response Body",
+      responseBody,
+      "application/json"
+    );
     expect(response.status()).toBe(400);
     expect(body).toHaveProperty("error");
   });

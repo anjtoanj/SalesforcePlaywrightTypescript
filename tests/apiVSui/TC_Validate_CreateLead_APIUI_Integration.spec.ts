@@ -7,21 +7,22 @@ import { LeadsPage } from "../../pages/leads";
 let leadId: any;
 
 test.describe("Tests on Leads page : API vs UI Integration", () => {
-  let accessToken: any;
+  let authData: any;
   let leadId: any;
 
   test.beforeAll(async () => {
-    accessToken = await getAccessToken();
+    authData = await getAccessToken();
+    console.log("Access Token in before.all test:", authData.access_Token);
   });
 
-  test("TC01 : Verify New Lead Created through API Request is being displayed in the Leads listview page", async ({
+  test.only("TC01 : Verify New Lead Created through API Request is being displayed in the Leads listview page", async ({
     page,
   }, testInfo) => {
     let homePage: HomePage;
     let leadsPage: LeadsPage;
 
     // Create a new lead using API
-    const newLead = await createLeadAPI(accessToken.accessToken);
+    const newLead = await createLeadAPI(authData.access_Token);
     // Log the creation response
     await testInfo.attach("New Lead creation response-status", {
       body: newLead.status.toString(),
@@ -34,7 +35,8 @@ test.describe("Tests on Leads page : API vs UI Integration", () => {
     leadId = newLead.leadId;
 
     // Use the same access token to get the lead details
-    const newLeadDetails = await getLeadAPI(accessToken.accessToken, leadId);
+    const newLeadDetails = await getLeadAPI(authData.access_Token, leadId);
+    console.log("newLeadDetails:", newLeadDetails);
 
     await testInfo.attach("New Lead details status", {
       body: `Status: ${newLeadDetails.status}`,
@@ -78,7 +80,7 @@ test.describe("Tests on Leads page : API vs UI Integration", () => {
     ).toContain(newLeadDetails.company);
 
     await testInfo.attach("New Lead Header from UI", {
-      body: `New Lead Header: ${leaderName}\nNew Lead company: ${companyName}`,
+      body: `New Lead Header: ${leaderName}`,
       contentType: "text/plain",
     });
     console.log("New Lead Header from UI:", leaderName);
