@@ -60,9 +60,9 @@ TASK STATUS
 
 ---
 
-TO IMPROVE / MODIFY NOTES
+----TO IMPROVE / MODIFY NOTES
 
-Login.spec.ts
+-Login.spec.ts
 
 1.  "TC : Verify if Enter key moves focus from username -> password -> Login Button"
     //REWRITE THIS TEST > THIS IS NOT THE RIGHT WAY TO DO IT -- TO DO LATER
@@ -74,7 +74,7 @@ playwrightWrapper.ts 3. Hook to capture a screenshot if the test fails- TO DO LA
 3. public async getLeadRowCount()
    - This method return wrong count if the no.of rows are more eg:56 due to timing issue in counting rows - TO BE FIXED LATER
 
-TIPS
+----TIPS
 
 -If npx playwright show-report is not showing the latest test run, it typically means that the HTML report was not updated after the latest test execution.
 npx playwright test --reporter=html
