@@ -1,5 +1,5 @@
 # SalesforcePlaywrightTypescript
-
+-Edited Readme file in Markdown language-
 This is a Salesforce test automation framework using **Playwright** + **TypeScript**.
 
 > ⚠️ This is an experimental framework with the following features:
@@ -89,9 +89,8 @@ Add hook to capture a screenshot if a test fails — TO DO
 Run with HTML reporter:
 npx playwright test --reporter=html
 npx playwright show-report
-Check if playwright-report/index.html has a recent timestamp.
-
-Confirm test results in npx playwright test output.
+--Check if playwright-report/index.html has a recent timestamp.
+--Confirm test results in npx playwright test output.
 
 🐞 Debug Mode
 Run with debug logging:
