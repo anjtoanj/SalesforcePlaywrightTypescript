@@ -1,6 +1,6 @@
 # SalesforcePlaywrightTypescript
 -Edited Readme file in Markdown language-
-This is a Salesforce test automation framework using **Playwright** + **TypeScript**.
+ -This is a Salesforce test automation framework using **Playwright** + **TypeScript**.
 
 > ⚠️ This is an experimental framework with the following features:
 - ✅ UI automation in Playwright + TypeScript
