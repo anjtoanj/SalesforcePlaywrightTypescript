@@ -5,21 +5,21 @@
 
 ## -FOLDER STRUCTURE
 
-API TO WEBPORTAL TESTING Framework structure
+-----API TO WEBPORTAL TESTING Framework structure-----
 
-SalesforcePlaywrightTypescript/
-│── node_modules/ # Dependencies (auto-generated)
-│── tests/ # Test cases directory
-│ ├── api/ # API test cases
-│ │ ├── users.test.ts # User API tests
-│ │ ├── auth.test.ts # Authentication tests
-│ │ ├── orders.test.ts # Orders API tests
-│ ├── ui/ # UI test cases (Page Object Model)
-│ │ ├── login.test.ts # Login tests
-│ │ ├── dashboard.test.ts # Dashboard tests
-│── pages/ # Page Object Model (POM) for UI
-│ ├── base.ts # Base class for common methods
-│ ├── login.ts # Login page actions
+-SalesforcePlaywrightTypescript/
+-│── node_modules/ # Dependencies (auto-generated)
+-│── tests/ # Test cases directory
+-│ ├── api/ # API test cases
+-│ │ ├── users.test.ts # User API tests
+-│ │ ├── auth.test.ts # Authentication tests
+-│ │ ├── orders.test.ts # Orders API tests
+-│ ├── ui/ # UI test cases (Page Object Model)
+-│ │ ├── login.test.ts # Login tests
+-│ │ ├── dashboard.test.ts # Dashboard tests
+-│── pages/ # Page Object Model (POM) for UI
+-│ ├── base.ts # Base class for common methods
+-│ ├── login.ts # Login page actions
 │ ├── home.ts # home page actions
 │ ├── dashboardPage.ts # Dashboard page actions
 │── api/ # API service layer (API POM)
@@ -47,12 +47,14 @@ SalesforcePlaywrightTypescript/
 
 ---
 
-TASK STATUS
-24/05/2025 1.TC01_Validate_CreateLead_APIUI_Integration.spec.ts - DONE - Create a new lead through API and verify in UI 2. TC02 : Verify New Lead Created in TC01 has been deleted through API and not present in UI - Get the count of records in a table /listview - DONE - Run teh entire delete test and ensure teh functionality - TO DO
-21/05/2025 1.Lead UI tests -> TC02: Verify search for Lead functionality - DONE
-19/05/2025 1.Lead UI tests -> TC_LeadPage.spec.ts - IN PROGRESS
-16/05/2025 1.API testing on leads page -> TC_API_LeadsPage.spec.ts -DONE
-15/05/2025 1.Setting up OAuth 2.0 - token generation and related tests - -> TC_TokenGeneration.spec.ts - DONE
+## TASK STATUS---
+-24/05/2025 
+    -1.TC01_Validate_CreateLead_APIUI_Integration.spec.ts - DONE - Create a new lead through API and verify in UI 
+    -2. TC02 : Verify New Lead Created in TC01 has been deleted through API and not present in UI - Get the count of records in a table /listview - DONE - Run the entire delete test and ensure teh functionality-- TO DO
+    -21/05/2025 1.Lead UI tests -> TC02: Verify search for Lead functionality - DONE
+    -19/05/2025 1.Lead UI tests -> TC_LeadPage.spec.ts - IN PROGRESS
+    -16/05/2025 1.API testing on leads page -> TC_API_LeadsPage.spec.ts -DONE
+    -15/05/2025 1.Setting up OAuth 2.0 - token generation and related tests - -> TC_TokenGeneration.spec.ts - DONE
 
 ---
 
@@ -60,28 +62,28 @@ TASK STATUS
 
 ---
 
-----TO IMPROVE / MODIFY NOTES
+## AREAS TO IMPROVE / MODIFY 
 
 -Login.spec.ts
 
-1.  "TC : Verify if Enter key moves focus from username -> password -> Login Button"
+-1.  "TC : Verify if Enter key moves focus from username -> password -> Login Button"
     //REWRITE THIS TEST > THIS IS NOT THE RIGHT WAY TO DO IT -- TO DO LATER
 
-2.  //write tests to handle blank username / pssword - TO DO LATER
+-2.  //write tests to handle blank username / pssword - TO DO LATER
 
 playwrightWrapper.ts 3. Hook to capture a screenshot if the test fails- TO DO LATER
 
-3. public async getLeadRowCount()
+-3. public async getLeadRowCount()
    - This method return wrong count if the no.of rows are more eg:56 due to timing issue in counting rows - TO BE FIXED LATER
 
-----TIPS
+# TIPS
 
--If npx playwright show-report is not showing the latest test run, it typically means that the HTML report was not updated after the latest test execution.
-npx playwright test --reporter=html
-npx playwright show-report
+--If npx playwright show-report is not showing the latest test run, it typically means that the HTML report was not updated after the latest test execution.
+-npx playwright test --reporter=html
+-npx playwright show-report
 
--To Debug
-Check that the playwright-report/index.html timestamp is recent.
-Check npx playwright test output to confirm tests ran.
-Re-run with verbose:
-npx playwright test --reporter=html --debug
+--To Debug
+-Check that the playwright-report/index.html timestamp is recent.
+-Check npx playwright test output to confirm tests ran.
+-Re-run with verbose:
+-npx playwright test --reporter=html --debug
