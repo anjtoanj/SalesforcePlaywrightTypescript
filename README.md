@@ -3,9 +3,9 @@
 This is a Salesforce test automation framework using **Playwright** + **TypeScript**.
 
 > ⚠️ This is an experimental framework with the following features:
-- ✅ UI automation in Playwright + TypeScript — **IN PROGRESS**
-- ✅ API automation (REST API) — **IN PROGRESS**
-- ✅ Integrated API → UI and vice versa testing — **IN PROGRESS**
+- ✅ UI automation in Playwright + TypeScript
+- ✅ API automation (REST API) 
+- ✅ Integrated API → UI and vice versa testing 
 - 💡 Generative AI-powered script creation — **TO DO**
 
 ---
