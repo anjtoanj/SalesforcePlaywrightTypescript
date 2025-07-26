@@ -68,11 +68,8 @@
 
 -1.  "TC : Verify if Enter key moves focus from username -> password -> Login Button"
     //REWRITE THIS TEST > THIS IS NOT THE RIGHT WAY TO DO IT -- TO DO LATER
-
 -2.  //write tests to handle blank username / pssword - TO DO LATER
-
 playwrightWrapper.ts 3. Hook to capture a screenshot if the test fails- TO DO LATER
-
 -3. public async getLeadRowCount()
    - This method return wrong count if the no.of rows are more eg:56 due to timing issue in counting rows - TO BE FIXED LATER
 
