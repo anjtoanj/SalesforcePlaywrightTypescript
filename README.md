@@ -1,86 +1,98 @@
 # SalesforcePlaywrightTypescript
 
-- This is a Salesforce test automation framework in Playwright + Typescript
-- This is an experimental framework with following features: - UI automation in playwright+ typescript - IN PROGRESS - API automation - REST API - IN PROGRESS - Tests to integrate API -> UI and vice versa - IN PROGRESS - Integrate Generative AI to create test scripts - TO DO
+This is a Salesforce test automation framework using **Playwright** + **TypeScript**.
 
-## -FOLDER STRUCTURE
+> ⚠️ This is an experimental framework with the following features:
+- ✅ UI automation in Playwright + TypeScript — **IN PROGRESS**
+- ✅ API automation (REST API) — **IN PROGRESS**
+- ✅ Integrated API → UI and vice versa testing — **IN PROGRESS**
+- 💡 Generative AI-powered script creation — **TO DO**
 
------API TO WEBPORTAL TESTING Framework structure-----
+---
 
--SalesforcePlaywrightTypescript/
--│── node_modules/ # Dependencies (auto-generated)
--│── tests/ # Test cases directory
--│ ├── api/ # API test cases
--│ │ ├── users.test.ts # User API tests
--│ │ ├── auth.test.ts # Authentication tests
--│ │ ├── orders.test.ts # Orders API tests
--│ ├── ui/ # UI test cases (Page Object Model)
--│ │ ├── login.test.ts # Login tests
--│ │ ├── dashboard.test.ts # Dashboard tests
--│── pages/ # Page Object Model (POM) for UI
--│ ├── base.ts # Base class for common methods
--│ ├── login.ts # Login page actions
-│ ├── home.ts # home page actions
-│ ├── dashboardPage.ts # Dashboard page actions
-│── api/ # API service layer (API POM)
-│ ├── baseApi.ts # Base API class
-│ ├── userApi.ts # User API actions
-│ ├── authApi.ts # Authentication API actions
-│ ├── ordersApi.ts # Orders API actions
-│── utils/ # Utility functions/helpers
-│ ├── apiUtils.ts # API request helpers
-│ ├── dataGenerator.ts # Test data generator
-| ├── playwrightWrapper.ts # Wrapper class
-│── test-data/ # Test data storage
-│ ├── loginPageCheck.json # Sample login dataset for various test cases
+## 📂 FOLDER STRUCTURE
+
+```bash
+SalesforcePlaywrightTypescript/
+│── node_modules/               # Dependencies (auto-generated)
+│── tests/                      # Test cases directory
+│   ├── api/                    # API test cases
+│   │   ├── users.test.ts       # User API tests
+│   │   ├── auth.test.ts        # Authentication tests
+│   │   ├── orders.test.ts      # Orders API tests
+│   ├── ui/                     # UI test cases (Page Object Model)
+│       ├── login.test.ts       # Login tests
+│       ├── dashboard.test.ts   # Dashboard tests
+│── pages/                      # Page Object Model (POM) for UI
+│   ├── base.ts                 # Base class for common methods
+│   ├── login.ts                # Login page actions
+│   ├── home.ts                 # Home page actions
+│   ├── dashboardPage.ts        # Dashboard page actions
+│── api/                        # API service layer (API POM)
+│   ├── baseApi.ts              # Base API class
+│   ├── userApi.ts              # User API actions
+│   ├── authApi.ts              # Authentication API actions
+│   ├── ordersApi.ts            # Orders API actions
+│── utils/                      # Utility functions/helpers
+│   ├── apiUtils.ts             # API request helpers
+│   ├── dataGenerator.ts        # Test data generator
+│   ├── playwrightWrapper.ts    # Wrapper class
+│── test-data/                  # Test data storage
+│   ├── loginPageCheck.json     # Sample login dataset
 │
-|── playwright.config.ts # Playwright configuration
-│── reports/ # Test reports (auto-generated)
-│── .gitignore # Ignore files for Git
-│── package.json # Project dependencies
-│── package-lock.json # Dependency lock file
-│── README.md # Documentation
+├── playwright.config.ts        # Playwright configuration
+├── reports/                    # Test reports (auto-generated)
+├── .gitignore                  # Git ignore rules
+├── package.json                # Project dependencies
+├── package-lock.json           # Dependency lock file
+├── README.md                   # Documentation
 
----
 
----
+TASK STATUS
+🗓️ 24/05/2025
+TC01_Validate_CreateLead_APIUI_Integration.spec.ts — ✅ DONE
+Create a new lead through API and verify it in UI.
 
----
+TC02 — ✅ PARTIALLY DONE
+Delete the lead created in TC01 via API, verify not visible in UI (count check).
+➤ Remaining: Run full delete flow and verify properly — TO DO
 
-## TASK STATUS---
--24/05/2025 
-    -1.TC01_Validate_CreateLead_APIUI_Integration.spec.ts - DONE - Create a new lead through API and verify in UI 
-    -2. TC02 : Verify New Lead Created in TC01 has been deleted through API and not present in UI - Get the count of records in a table /listview - DONE - Run the entire delete test and ensure teh functionality-- TO DO
-    -21/05/2025 1.Lead UI tests -> TC02: Verify search for Lead functionality - DONE
-    -19/05/2025 1.Lead UI tests -> TC_LeadPage.spec.ts - IN PROGRESS
-    -16/05/2025 1.API testing on leads page -> TC_API_LeadsPage.spec.ts -DONE
-    -15/05/2025 1.Setting up OAuth 2.0 - token generation and related tests - -> TC_TokenGeneration.spec.ts - DONE
+🗓️ 21/05/2025
+Lead UI tests → TC02_VerifySearchForLeadFunctionality.spec.ts — ✅ DONE
 
----
+🗓️ 19/05/2025
+Lead UI tests → TC_LeadPage.spec.ts — 🛠️ IN PROGRESS
 
----
+🗓️ 16/05/2025
+API testing on Leads page → TC_API_LeadsPage.spec.ts — ✅ DONE
 
----
+🗓️ 15/05/2025
+OAuth 2.0 Token generation setup → TC_TokenGeneration.spec.ts — ✅ DONE
 
-## AREAS TO IMPROVE / MODIFY 
+🛠️ AREAS TO IMPROVE / MODIFY
+🔸 Login.spec.ts
+TC: Verify if Enter key moves focus from Username → Password → Login Button
+⛔ Rewrite this test — Current implementation is incorrect — TO DO
 
--Login.spec.ts
+Add tests for:
+Blank username & Blank password — TO DO
 
--1.  "TC : Verify if Enter key moves focus from username -> password -> Login Button"
-    //REWRITE THIS TEST > THIS IS NOT THE RIGHT WAY TO DO IT -- TO DO LATER
--2.  //write tests to handle blank username / pssword - TO DO LATER
-playwrightWrapper.ts 3. Hook to capture a screenshot if the test fails- TO DO LATER
--3. public async getLeadRowCount()
-   - This method return wrong count if the no.of rows are more eg:56 due to timing issue in counting rows - TO BE FIXED LATER
+🔸 playwrightWrapper.ts
+Add hook to capture a screenshot if a test fails — TO DO
 
-# TIPS
+🔸 Method: public async getLeadRowCount()
+❗ This returns incorrect count for larger tables (e.g., 56 rows) — likely due to async/timing issues
+➤ Fix logic and timing — TO DO
 
---If npx playwright show-report is not showing the latest test run, it typically means that the HTML report was not updated after the latest test execution.
--npx playwright test --reporter=html
--npx playwright show-report
+💡 TIPS
+🧪 Playwright Report Not Updating?
+Run with HTML reporter:
+npx playwright test --reporter=html
+npx playwright show-report
+Check if playwright-report/index.html has a recent timestamp.
 
---To Debug
--Check that the playwright-report/index.html timestamp is recent.
--Check npx playwright test output to confirm tests ran.
--Re-run with verbose:
--npx playwright test --reporter=html --debug
+Confirm test results in npx playwright test output.
+
+🐞 Debug Mode
+Run with debug logging:
+npx playwright test --reporter=html --debug
