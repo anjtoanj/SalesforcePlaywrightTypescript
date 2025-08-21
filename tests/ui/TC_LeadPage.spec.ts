@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { test, expect } from "../../pages/test-fixture";
 import { LeadsPage } from "../../pages/leads";
 import { HomePage } from "../../pages/home";
 
@@ -6,9 +6,9 @@ test.describe(`Tests on Leads page`, () => {
   let homePage: HomePage;
   let leadsPage: LeadsPage;
 
-  test.beforeEach(async ({ page }) => {
-    homePage = new HomePage(page);
-    leadsPage = new LeadsPage(page);
+  test.beforeEach(async ({ loggedInPage }) => {
+    homePage = new HomePage(loggedInPage);
+    leadsPage = new LeadsPage(loggedInPage);
     await homePage.navigateToLoginPage();
     await homePage.Login();
     await leadsPage.navigateToLeadsPage();

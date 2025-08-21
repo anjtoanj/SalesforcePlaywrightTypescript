@@ -3,7 +3,7 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests",
   timeout: 50000, // 50secs timeout per test
-  workers: 4, // Run tests in parallel using 4 workers
+  workers: 1, // Run tests in parallel using 4 workers
   retries: 1, // Retries once if a test fails
   reporter: [
     ["html", { outputFolder: "playwright-report", open: "always" }], // Generates and opens HTML report

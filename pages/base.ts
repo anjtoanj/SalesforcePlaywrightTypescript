@@ -30,4 +30,14 @@ export class BaseClass extends PlaywrightWrapper {
     await this.type(this.password, "Password", Users.adminPassword);
     await this.click(this.loginButton, "Login", "Button");
   }
+
+  /*
+    Waits for the next page (new tab or window) to load completely.
+    Pass the Page object of the new page.
+  */
+  public async waitForPageLoadComplete(newPage: Page) {
+    await newPage.waitForLoadState("load");
+    await newPage.waitForLoadState("domcontentloaded");
+    await newPage.waitForLoadState("networkidle");
+  }
 }
