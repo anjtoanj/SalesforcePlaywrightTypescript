@@ -9,20 +9,17 @@ test.describe(`Tests on Leads page`, () => {
   test.beforeEach(async ({ loggedInPage }) => {
     homePage = new HomePage(loggedInPage);
     leadsPage = new LeadsPage(loggedInPage);
-    await homePage.navigateToLoginPage();
-    await homePage.Login();
-    await leadsPage.navigateToLeadsPage();
   });
 
   test.skip("TC01: Verify new lead creation functionality", async ({
-    page,
+    loggedInPage,
   }) => {
     await leadsPage.createNewLead();
     // Add assertions to verify the lead creation
   });
 
   test("TC02: Verify search for Lead functionality", async ({
-    page,
+    loggedInPage,
   }, testInfo) => {
     await leadsPage.searchLead("Anju");
     await leadsPage.click(
@@ -32,7 +29,7 @@ test.describe(`Tests on Leads page`, () => {
     );
     // Add assertions to verify if the lead is found and navigated to the lead details page
     expect(
-      await page.locator(leadsPage.leadNameHeader).textContent()
+      await loggedInPage.locator(leadsPage.leadNameHeader).textContent()
     ).toContain("Anju");
     // await expect(page.locator(leadsPage.companyNameValue)).toContainText(
     //   "Playwright API test"
@@ -43,8 +40,4 @@ test.describe(`Tests on Leads page`, () => {
       contentType: "text/plain",
     });
   });
-
-  test.skip("TC03: Verify modify on selected Lead functionality", async ({
-    page,
-  }) => {});
 });
