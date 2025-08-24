@@ -17,13 +17,11 @@ export const test = base.extend<Fixtures>({
     // Perform login with predefined credentials
     await baseClass.Login();
 
-    // Wait for the home page to load
-    await page.waitForURL(BaseClass.pageUrl, { timeout: 50000 });
+    // // Wait for the home page to load
+    // await page.waitForURL(BaseClass.pageUrl, { timeout: 50000 });
 
     // Use the logged-in page in tests
     await use(page);
-
-    // Teardown: Playwright handles closing page/context automatically
   },
 });
 export { expect } from "@playwright/test";
