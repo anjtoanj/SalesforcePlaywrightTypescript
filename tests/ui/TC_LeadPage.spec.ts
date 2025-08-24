@@ -18,4 +18,12 @@ test.describe(`Tests on Leads page`, () => {
     const rowCount = await leadsPage.searchLead("Grayson Heaney");
     expect(rowCount).toBeGreaterThan(0);
   });
+
+  test("TC02: Verify search for Lead functionality", async ({
+    loggedInPage,
+  }, testInfo) => {
+    await leadsPage.navigateToLeadsPage();
+    const rowCount = await leadsPage.searchLead("Grayson Heaney");
+    expect(rowCount).toBeGreaterThan(0);
+  });
 });

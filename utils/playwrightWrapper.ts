@@ -52,6 +52,10 @@ export class PlaywrightWrapper {
     await this.page.waitForURL(url, { timeout: timeout });
   }
 
+  // Add this to your PlaywrightWrapper or relevant base class
+  public getPage() {
+    return this.page;
+  }
   /*
     This method waits for a element to be visible, if it's not detected wtihin specific time then will timeout.
     @param element - The element to wait for.

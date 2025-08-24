@@ -1,6 +1,0 @@
-To resolve the error "Cannot find module '@playwright/test'", you need to ensure that the Playwright testing library is installed in your project. 
-
-1. **Install Playwright**: Run the following command in your project root to install the Playwright test library:
-   npm install @playwright/test
-
-This will add the necessary module to your project, and the error should be resolved. No other files need to be created or edited for this fix.
