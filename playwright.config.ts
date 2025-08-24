@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: "./tests",
   timeout: 50000, // 50secs timeout per test
   workers: 1, // Run tests in parallel using 4 workers
-  retries: 1, // Retries once if a test fails
+  retries: 0, // NO retry
   reporter: [
     ["html", { outputFolder: "playwright-report", open: "always" }], // Generates and opens HTML report
   ],
