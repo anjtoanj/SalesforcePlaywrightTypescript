@@ -1,4 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
+import * as path from "path";
+import { authSessionStorage } from "./utils/authSessionStorage";
 
 export default defineConfig({
   testDir: "./tests",
@@ -13,8 +15,7 @@ export default defineConfig({
     video: "on", // Record video for all tests
     screenshot: "only-on-failure", // Capture screenshots only when a test fails
     headless: false, // Run tests in non-headless mode for debugging
-    // storageState: "salesforce/auth.json", // Load stored login session from Salesforce
-    //  baseURL: 'https://login.salesforce.com',  // Base URL for all tests
+    storageState: authSessionStorage.getStoragePath(), // Load stored login session from Salesforce
   },
   projects: [
     {
