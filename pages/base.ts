@@ -29,7 +29,11 @@ export class BaseClass extends PlaywrightWrapper {
   /*
     Performs login with predefined credentials. 
     */
-  public async Login() {
+  public async Login(): Promise<void> {
+    if (!Users.adminUserName || !Users.adminPassword) {
+      throw new Error("Admin credentials are missing in environment variables");
+    }
+
     await this.userName.fill(Users.adminUserName);
     await this.password.fill(Users.adminPassword);
     await this.loginButton.click();
