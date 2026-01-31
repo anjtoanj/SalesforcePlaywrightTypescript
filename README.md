@@ -52,6 +52,11 @@ SalesforcePlaywrightTypescript/
 
 
 TASK STATUS
+🗓️ 01/02/2026
+FIX URGENTLY : Manage handling email verification page
+    -once logged into Salesforce app, verification code is being send to my gmail
+    -Login to gmail -> find the salesforcemail -> get the verification code -> enter to the verification page
+
 🗓️ 31/01/2026
 Added a .env file to manage login credentials-specific configurations locally mapped to GitHub environment secrets
 Configured GitHub Actions to use environment secrets[login credentials], keeping sensitive credentials secure.
