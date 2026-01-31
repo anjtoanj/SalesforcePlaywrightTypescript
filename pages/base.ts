@@ -7,17 +7,21 @@ export class BaseClass extends PlaywrightWrapper {
   static pageUrl = UrlConstants.SF_URL;
 
   //Locators
-  public loginButton = "//input[@name='Login']";
-  public userName = "//input[@name='username']";
-  public password = "//input[@name='pw']";
+  private loginButton;
+  private userName;
+  private password;
 
   constructor(page: Page) {
     super(page);
+    this.userName = page.locator("input[name='username']");
+    this.password = page.locator("input[name='pw']");
+    this.loginButton = page.locator("input[name='Login']");
   }
 
   /*
     Navigates to the login page.
     */
+
   public async navigateToLoginPage() {
     await this.loadApp(BaseClass.pageUrl);
   }
@@ -26,9 +30,9 @@ export class BaseClass extends PlaywrightWrapper {
     Performs login with predefined credentials. 
     */
   public async Login() {
-    await this.type(this.userName, "UserName", Users.adminUserName);
-    await this.type(this.password, "Password", Users.adminPassword);
-    await this.click(this.loginButton, "Login", "Button");
+    await this.userName.fill(process.env.ADMIN_USERNAME ?? Users.adminUsername);
+    await this.password.fill(Users.adminPassword);
+    await this.loginButton.click();
   }
 
   /*
