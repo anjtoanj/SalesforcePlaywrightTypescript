@@ -22,7 +22,7 @@ export default defineConfig({
       name: "chrome",
       use: {
         channel: "chrome",
-        viewport: { width: 1720, height: 1280 }, // Set viewport sizeclear
+        viewport: { width: 1700, height: 1200 }, // Set viewport sizeclear
       },
     },
     // {
