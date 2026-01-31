@@ -1,6 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 import * as path from "path";
 import { authSessionStorage } from "./utils/authSessionStorage";
+import dotenv from "dotenv";
+
+dotenv.config(); // load .env into process.env
 
 export default defineConfig({
   testDir: "./tests",
@@ -14,7 +17,7 @@ export default defineConfig({
     trace: "on", // Enable tracing for debugging
     video: "on", // Record video for all tests
     screenshot: "only-on-failure", // Capture screenshots only when a test fails
-    headless: true, // Run tests in non-headless mode for debugging
+    headless: false, // Run tests in non-headless mode for debugging
     //  storageState: authSessionStorage.getStoragePath(), // Load stored login session from Salesforce
   },
   projects: [

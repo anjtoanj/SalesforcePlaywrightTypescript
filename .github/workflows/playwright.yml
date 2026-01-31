@@ -26,8 +26,8 @@ jobs:
 
       - name: Run Playwright tests
         env:
-          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
-          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          ADMIN_USERNAME: ${{secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{secrets.ADMIN_PASSWORD }}
         run: npx playwright test "tests/ui/TC_homePage.spec.ts"
 
       - uses: actions/upload-artifact@v4

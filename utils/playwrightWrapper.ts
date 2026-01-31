@@ -1,11 +1,4 @@
-import {
-  Page,
-  Locator,
-  test,
-  expect,
-  Browser,
-  BrowserContext,
-} from "@playwright/test";
+import { Page, Locator, Browser, BrowserContext } from "@playwright/test";
 import { time } from "console";
 import { loadEnvFile } from "process";
 
@@ -24,11 +17,12 @@ export class PlaywrightWrapper {
 
   async loadApp(url: string) {
     try {
-      await test.step(`The url: ${url} is loaded `, async () => {
-        await this.page.goto(url, { timeout: 6000 });
-      });
+      console.log(`Loading URL: ${url}`);
+      await this.page.goto(url, { timeout: 6000 });
+      console.log(`URL loaded successfully: ${url}`);
     } catch (error) {
       console.error(`Error loading the page:`, error);
+      throw error; // re-throw if you want the test to fail
     }
   }
 
@@ -36,12 +30,11 @@ export class PlaywrightWrapper {
     This function returns the current URL of the page
     */
   async getUrl(): Promise<string> {
-    return await test.step(`Fetching the current URL`, async () => {
-      const currentUrl = this.page.url();
-      console.log(`Current URL: ${currentUrl}`);
-      return currentUrl;
-    });
+    const currentUrl = this.page.url();
+    console.log(`Current URL: ${currentUrl}`);
+    return currentUrl;
   }
+
   /*
     This method waits for a URL with a custom error message if it's not detected within the timeout.
     @param url - The URL to wait for.
@@ -103,11 +96,11 @@ export class PlaywrightWrapper {
     */
 
   async typeandEnter(locator: string, name: string, data: string) {
-    await test.step(`Entered ${name} in the textbox : ${data}`, async () => {
-      await this.page.locator(locator).clear;
-      await this.page.locator(locator).fill(data);
-      await this.page.keyboard.press("Enter");
-    });
+    console.log(`Entering ${name} in the textbox: ${data}`);
+    const element = this.page.locator(locator);
+    await element.clear(); // fixed: added parentheses
+    await element.fill(data);
+    await this.page.keyboard.press("Enter");
   }
 
   /*
@@ -117,9 +110,8 @@ export class PlaywrightWrapper {
     @name: Name of the element
     */
   async click(locator: string, name: string, type: string) {
-    await test.step(`The ${type} ${name} clicked`, async () => {
-      await this.page.locator(locator).click({ timeout: 10000 });
-    });
+    console.log(`Clicking the ${type} ${name}`);
+    await this.page.locator(locator).click({ timeout: 10000 });
   }
 
   /*
@@ -136,16 +128,20 @@ export class PlaywrightWrapper {
   /*
     Hook to capture a screenshot if the test fails- TO implement
     */
-  static afterEachHook() {
-    test.afterEach(async ({ page }, testInfo) => {
-      if (testInfo.status !== "passed") {
-        const screenshotPath = `test-results/${testInfo.title.replace(
-          /[^a-zA-Z0-9]/g,
-          "_"
-        )}.png`;
-        await page.screenshot({ path: screenshotPath, fullPage: true });
-        console.log(`Screenshot captured: ${screenshotPath}`);
-      }
-    });
-  }
+
+  // Remove it from PlaywrightWrapper.
+  // Move it to a spec file or a separate global setup file, e.g., global-hooks.ts:
+
+  // static afterEachHook() {
+  //   test.afterEach(async ({ page }, testInfo) => {
+  //     if (testInfo.status !== "passed") {
+  //       const screenshotPath = `test-results/${testInfo.title.replace(
+  //         /[^a-zA-Z0-9]/g,
+  //         "_",
+  //       )}.png`;
+  //       await page.screenshot({ path: screenshotPath, fullPage: true });
+  //       console.log(`Screenshot captured: ${screenshotPath}`);
+  //     }
+  //   });
+  // }
 }

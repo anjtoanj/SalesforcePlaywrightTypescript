@@ -1,5 +1,4 @@
 import { test, expect } from "@playwright/test";
-
 import { BaseClass } from "../../pages/base";
 import { UrlConstants } from "../../constants/appConstants";
 

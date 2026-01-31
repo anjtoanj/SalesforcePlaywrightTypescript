@@ -1,9 +1,14 @@
 {
   "name": "salesforceplaywrighttypescript",
   "version": "1.0.0",
-  "description": "Salesforce test automation framework in Playwright + Typescript",
+  "description": "-Edited Readme file in Markdown language-\r  -This is a Salesforce test automation framework using **Playwright** + **TypeScript**.",
   "main": "index.js",
-  "scripts": {},
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anjtoanj/SalesforcePlaywrightTypescript.git"
@@ -17,10 +22,11 @@
   },
   "homepage": "https://github.com/anjtoanj/SalesforcePlaywrightTypescript#readme",
   "devDependencies": {
-    "@faker-js/faker": "^9.8.0",
-    "@playwright/mcp": "^0.0.32",
     "@playwright/test": "^1.58.1",
-    "@types/node": "^22.13.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
     "dotenv": "^17.2.3"
   }
 }

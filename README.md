@@ -1,11 +1,13 @@
 # SalesforcePlaywrightTypescript
+
 -Edited Readme file in Markdown language-
- -This is a Salesforce test automation framework using **Playwright** + **TypeScript**.
+-This is a Salesforce test automation framework using **Playwright** + **TypeScript**.
 
 > ⚠️ This is an experimental framework with the following features:
+
 - ✅ UI automation in Playwright + TypeScript
-- ✅ API automation (REST API) 
-- ✅ Integrated API → UI and vice versa testing 
+- ✅ API automation (REST API)
+- ✅ Integrated API → UI and vice versa testing
 - 💡 Generative AI-powered script creation — **TO DO**
 
 ---
@@ -45,10 +47,15 @@ SalesforcePlaywrightTypescript/
 ├── .gitignore                  # Git ignore rules
 ├── package.json                # Project dependencies
 ├── package-lock.json           # Dependency lock file
+├── .env                        # Manage credentials locally mapped to GitHub environment secrets
 ├── README.md                   # Documentation
 
 
 TASK STATUS
+🗓️ 31/01/2026
+Added a .env file to manage login credentials-specific configurations locally mapped to GitHub environment secrets
+Configured GitHub Actions to use environment secrets[login credentials], keeping sensitive credentials secure.
+
 🗓️ 24/05/2025
 TC01_Validate_CreateLead_APIUI_Integration.spec.ts — ✅ DONE
 Create a new lead through API and verify it in UI.
@@ -95,3 +102,4 @@ npx playwright show-report
 🐞 Debug Mode
 Run with debug logging:
 npx playwright test --reporter=html --debug
+```

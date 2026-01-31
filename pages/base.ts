@@ -1,4 +1,4 @@
-import { Page, expect } from "@playwright/test";
+import { Page } from "@playwright/test";
 import { PlaywrightWrapper } from "../utils/playwrightWrapper";
 import { UrlConstants } from "../constants/appConstants";
 import { Users } from "../constants/users";

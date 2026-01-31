@@ -1,11 +1,15 @@
-const requireEnv = (key: string): string => {
-  const value = process.env[key];
-  if (!value)
-    throw new Error(`Admin credentials are missing in environment variables`);
-  return value;
-};
-
 export const Users = {
-  adminUserName: requireEnv("ADMIN_USERNAME"),
-  adminPassword: requireEnv("ADMIN_PASSWORD"),
+  get adminUserName(): string {
+    const value = process.env.ADMIN_USERNAME;
+    if (!value)
+      throw new Error("ADMIN_USERNAME is missing in environment variables");
+    return value;
+  },
+
+  get adminPassword(): string {
+    const value = process.env.ADMIN_PASSWORD;
+    if (!value)
+      throw new Error("ADMIN_PASSWORD is missing in environment variables");
+    return value;
+  },
 };
