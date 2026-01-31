@@ -14,7 +14,7 @@ export default defineConfig({
     trace: "on", // Enable tracing for debugging
     video: "on", // Record video for all tests
     screenshot: "only-on-failure", // Capture screenshots only when a test fails
-    headless: false, // Run tests in non-headless mode for debugging
+    headless: true, // Run tests in non-headless mode for debugging
     //  storageState: authSessionStorage.getStoragePath(), // Load stored login session from Salesforce
   },
   projects: [
