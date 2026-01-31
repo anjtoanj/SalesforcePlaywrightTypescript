@@ -30,7 +30,7 @@ export class BaseClass extends PlaywrightWrapper {
     Performs login with predefined credentials. 
     */
   public async Login() {
-    await this.userName.fill(process.env.ADMIN_USERNAME ?? Users.adminUsername);
+    await this.userName.fill(Users.adminUserName);
     await this.password.fill(Users.adminPassword);
     await this.loginButton.click();
   }
